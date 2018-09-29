@@ -125,17 +125,20 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-// need------------------------------------------------------------
+let finder = arr => {
+  let num = getRandomArbitrary();
+  return arr.includes(num);
+};
 
 /// ----- come back to
-// let finder = (arr) => {
+// let finder = arr => {
 //   let num = getRandomArbitrary();
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === num) {
-//       return true
-//     }
-//   return false
-// }
+//   if (arr.indexOf(num)) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
 
 ////////// PROBLEM 8 //////////
 
@@ -163,15 +166,27 @@ var myGroceryList = ["chips", "pizza", "hotpockets", "MtnDew", "corndogs"];
 */
 
 //Code Here
-// need------------------------------------------------------------
 
-let removeItem = (list, itemToRemove) => {
-  list.filter(x => x != itemToRemove);
-  return list;
+let removeItem = (groceryList, itemToRemove) => {
+  if (groceryList && itemToRemove) {
+    if (groceryList.includes(itemToRemove)) {
+      groceryList.splice(groceryList.indexOf(itemToRemove), 1);
+      return groceryList;
+    } else {
+      return groceryList;
+    }
+  } else {
+    return [];
+  }
 };
-let addItem = (list, itemToAdd) => {
-  list.filter(x => x != itemToRemove);
-  return list;
+
+let addItem = (groceryList, itemToAdd) => {
+  if (groceryList && itemToAdd) {
+    groceryList.push(itemToAdd);
+    return groceryList;
+  } else {
+    return [];
+  }
 };
 
 ////////// PROBLEM 9 //////////
@@ -249,11 +264,16 @@ let longer = (arr1, arr2) => {
 */
 
 //Code Here
-// need------------------------------------------------------------
 let both = (arr1, arr2) => {
-  let newArr = arr1.filter(arr1Item => arr2.includes(arr1Item));
+  let newArr = [];
 
-  console.log(newArr);
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      newArr.push(arr1[i]);
+    }
+  }
+
+  return newArr;
 };
 
 ////////// PROBLEM 12 //////////
